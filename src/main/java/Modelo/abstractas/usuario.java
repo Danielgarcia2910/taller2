@@ -8,8 +8,10 @@ public abstract class usuario {
     
     private int id;
     private String nombre;
-    private String contraseña;
     private String correo;
+    private String contraseña;
+
+    
 
     public usuario(int id, String nombre, String contraseña, String correo) {
         this.id = id;
