@@ -1,78 +1,68 @@
 package modelo.tiendaaccesorios;
 
-import modelo.excepciones.StockInsuficienteException;
-import modelo.excepciones.CantidadInvalidaException;
-
-public class Producto {
-
+/**
+ *hhfhfhssss
+ * @author Orly02ddd
+ */
+public abstract class usuario {
+    
+    private int id;
     private String nombre;
-    private double precio;
-    private int stock;
-    private String tipo;
+    private String contraseña;
+    private String correo;
 
-    public Producto(String nombre, double precio, int stock, String tipo) {
+    public usuario(int id, String nombre, String contraseña, String correo) {
+        this.id = id;
         this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
-        this.tipo = tipo;
+        this.contraseña = contraseña;
+        this.correo = correo;
     }
+    
+    
+    public abstract String getRol1();
+    
+    public void mostrarInformacion(){
+        
+        System.out.println("ID "+ id);
+        System.out.println("nombre"+ nombre);
+        System.out.println("correo"+ correo);
+        
+    
+        
+        
+}
 
-    public void comprar(int cantidad)
-            throws StockInsuficienteException, CantidadInvalidaException {
-
-        if (cantidad <= 0) {
-            throw new CantidadInvalidaException(
-                    "la cantidad debe ser mayor a 0");
-        }
-
-        if (cantidad > stock) {
-            throw new StockInsuficienteException(
-                    "no hay suficiente stock disponible");
-        }
-
-        stock -= cantidad;
-    }
-
-    public boolean disponible() {
-        return stock > 0;
-    }
-
-    public void mostrarInformacion() {
-        System.out.println("producto: " + nombre);
-        System.out.println("tipo: " + tipo);
-        System.out.println("precio: $" + precio);
-        System.out.println("stock: " + stock);
+    public int getId() {
+        return id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
-        return precio;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+    
+    
 }
