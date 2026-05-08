@@ -1,79 +1,86 @@
 package modelo.tiendaaccesorios;
 
-import modelo.excepciones.StockInsuficienteException;
-import modelo.excepciones.CantidadInvalidaException;
+/**fghj
+ *
+ * @author Orly02
+ */
+import java.util.ArrayList;
+import modelo.excepciones.CarritoVacioException;
 
-public class Producto {
 
-    private String nombre;
-    private double precio;
-    private int stock;
-    private String tipo;
+public class Pedido {
 
-    public Producto(String nombre, double precio, int stock, String tipo) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
-        this.tipo = tipo;
-    }
+    private int idPedido;
+    private Cliente cliente;
+    private ArrayList<Producto> productos;
+    private double total;
 
-    public void comprar(int cantidad)
-            throws StockInsuficienteException, CantidadInvalidaException {
+    public Pedido(int idPedido, Cliente cliente,
+                  ArrayList<Producto> productos)
+            throws CarritoVacioException {
 
-        if (cantidad <= 0) {
-            throw new CantidadInvalidaException(
-                    "la cantidad debe ser mayor a 0");
+        if (productos.isEmpty()) {
+            throw new CarritoVacioException("no se puede crear un pedido vacío");
         }
 
-        if (cantidad > stock) {
-            throw new StockInsuficienteException(
-                    "no hay suficiente stock disponible");
+        this.idPedido = idPedido;
+        this.cliente = cliente;
+        this.productos = productos;
+        this.total = calcularTotal();
+    }
+
+    public double calcularTotal() {
+
+        double suma = 0;
+
+        for (Producto producto : productos) {
+            suma += producto.getPrecio();
         }
 
-        stock -= cantidad;
+        return suma;
     }
 
-    public boolean disponible() {
-        return stock > 0;
+    public void mostrarPedido() {
+
+        System.out.println("===== PEDIDO =====");
+        System.out.println("ID Pedido: " + idPedido);
+        System.out.println("Cliente: " + cliente.getNombre());
+
+        System.out.println("Productos:");
+
+        for (Producto producto : productos) {
+            System.out.println(producto.getNombre()+ " - $" + producto.getPrecio());
+        }
+
+        System.out.println("Total: $" + total);
     }
 
-    public void mostrarInformacion() {
-        System.out.println("producto: " + nombre);
-        System.out.println("tipo: " + tipo);
-        System.out.println("precio: $" + precio);
-        System.out.println("stock: " + stock);
+    public int getIdPedido() {
+        return idPedido;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public double getPrecio() {
-        return precio;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public ArrayList<Producto> getProductos() {
+        return productos;
     }
 
-    public int getStock() {
-        return stock;
+    public void setProductos(ArrayList<Producto> productos) {
+        this.productos = productos;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public double getTotal() {
+        return total;
     }
 }
 
