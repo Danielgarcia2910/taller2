@@ -4,18 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente extends usuario {
+
     private String direccion;
     private String telefono;
     private Carrito carrito;
     private List<Pedido> historialPedidos;
 
-    
-    public Cliente(String nombre, String correo, String contrasena,
+    public Cliente(int id, String nombre, String correo, String contrasena,
                    String direccion, String telefono) {
-        super(nombre, correo, contrasena);
+        super(id, nombre, correo, contrasena);  
         this.direccion = direccion;
         this.telefono = telefono;
-        this.carrito = new Carrito(this);
         this.historialPedidos = new ArrayList<>();
     }
 
@@ -33,10 +32,10 @@ public class Cliente extends usuario {
 
     public void mostrarHistorial() {
         if (historialPedidos.isEmpty()) {
-            System.out.println("  no tienes pedidos registrados.");
+            System.out.println("  No tienes pedidos registrados.");
             return;
         }
-        System.out.println("  === Historiallll de pedidos de " + nombre + " ===");
+        System.out.println("  === Historial de pedidos de " + nombre + " ===");
         for (Pedido p : historialPedidos) {
             System.out.println("  " + p);
         }
@@ -50,7 +49,3 @@ public class Cliente extends usuario {
         return super.toString() + " | Tel: " + telefono + " | Dir: " + direccion;
     }
 }
-
-
-
-
