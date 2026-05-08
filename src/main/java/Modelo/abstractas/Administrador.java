@@ -1,45 +1,30 @@
 package modelo.tiendaaccesorios;
 
-/**
- *
- * @author Orly02
- */
-import modelo.excepciones.CarritoVacioException;
-import java.util.ArrayList;
 import modelo.excepciones.ProductoNoEncontradoException;
+import java.util.ArrayList;
 
 public class Administrador extends usuario {
 
-    public Administrador(int id, String nombre,
-                         String correo, String contraseña) {
-
-        super(id, nombre, correo, contraseña);
+    public Administrador(int id, String nombre, String correo, String contrasena) {
+        super(id, nombre, correo, contrasena);
     }
 
     @Override
-    public void mostrarRol() {
-        System.out.println("rol de Administrador");
-    }
+    public String getRol() 
+    
+    { return "ADMINISTRADOR"; }
 
-    public void agregarProducto(ArrayList<Producto> inventario,
-                                Producto producto) {
-
+    public void agregarProducto(ArrayList<Producto> inventario, Producto producto) {
         inventario.add(producto);
-
-        System.out.println("producto agregado correctamente");
+        System.out.println("Producto agregado correctamente.");
     }
 
-    public void eliminarProducto(ArrayList<Producto> inventario,Producto producto)
+    public void eliminarProducto(ArrayList<Producto> inventario, Producto producto)
             throws ProductoNoEncontradoException {
-
         if (!inventario.contains(producto)) {
-
-            throw new ProductoNoEncontradoException("producto no encontrado");
+            throw new ProductoNoEncontradoException("Producto no encontrado.");
         }
-
         inventario.remove(producto);
-
-        System.out.println("producto eliminado correctamente");
+        System.out.println("Producto eliminado correctamente.");
     }
 }
-
