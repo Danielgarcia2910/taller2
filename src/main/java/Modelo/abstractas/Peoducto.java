@@ -1,96 +1,80 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package modelo.abstractas;
+package modelo.tiendaaccesorios;
 
-/**
- *
- * @author Orly02
- */
+import modelo.excepciones.StockInsuficienteException;
+import modelo.excepciones.CantidadInvalidaException;
 
-import java.time.LocalDate;
-import java.time.Period;
-import modelo.excepciones.DatoInvalidoException;
-public abstract class Persona {
-    
-    private String id;
+public class Producto {
+
     private String nombre;
-    private String apellido;
-    private LocalDate fechaNacimiento;
-    private String email;
+    private double precio;
+    private int stock;
+    private String tipo;
 
-    public Persona(String id, String nombre, String apellido, LocalDate fechaNacimiento, String email) {
-        this.id = id;
+    public Producto(String nombre, double precio, int stock, String tipo) {
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.email = email;
-    }
-    
-    public abstract int calcularEdad();
-    
-    public abstract String obtenerTipo();
-    
-    public abstract String obtenerDocumento();
-    
-    public String getNombrecompleto(){
-        return nombre + " " + apellido;
+        this.precio = precio;
+        this.stock = stock;
+        this.tipo = tipo;
     }
 
-    public String getId() {
-        return id;
-    }
-    
-    public void setId(String id) {
-        if (id == null || id.isEmpty()) {
-            throw new DatoInvalidoException("id", id);
+    public void comprar(int cantidad)
+            throws StockInsuficienteException, CantidadInvalidaException {
+
+        if (cantidad <= 0) {
+            throw new CantidadInvalidaException(
+                    "la cantidad debe ser mayor a 0");
         }
-        this.id = id;
-    }
-    
-   public String getNombre(){
-       return nombre;
-       
-   }
-   public void setNombre(String nombre) {
-        if (nombre == null || nombre.isEmpty()) {
-            throw new DatoInvalidoException("nombre", nombre);
+
+        if (cantidad > stock) {
+            throw new StockInsuficienteException(
+                    "no hay suficiente stock disponible");
         }
+
+        stock -= cantidad;
+    }
+
+    public boolean disponible() {
+        return stock > 0;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("producto: " + nombre);
+        System.out.println("tipo: " + tipo);
+        System.out.println("precio: $" + precio);
+        System.out.println("stock: " + stock);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setApellido(String apellido) {
-        if (apellido == null || apellido.isEmpty()) {
-            throw new DatoInvalidoException("apellido", apellido);
-        }
-        this.apellido = apellido;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
+    public int getStock() {
+        return stock;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        if (fechaNacimiento == null || fechaNacimiento.isAfter(LocalDate.now())) {
-            throw new DatoInvalidoException("fechaNacimiento", fechaNacimiento);
-        }
-        this.fechaNacimiento = fechaNacimiento;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setEmail(String email) {
-        if (email == null || !email.contains("@")) {
-            throw new DatoInvalidoException("email", email);
-        }
-        this.email = email;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
-    
 }
+
+
