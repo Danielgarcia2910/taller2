@@ -1,32 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Modelo.excepciones;
+package modelo.excepciones;
 
-/**
- *
- * @author Orly02
- */
+public class UsuarioNoValidoException extends Exception {
 
-public class CapacidadExcedidaException extends SistemaBancarioException {
-
-    private int capacidadMaxima;
-
-    public CapacidadExcedidaException(String mensaje, int capacidadMaxima) {
+    public UsuarioNoValidoException(String mensaje) {
         super(mensaje);
-        this.capacidadMaxima = capacidadMaxima;
-    }
-
-    public int getCapacidadMaxima() {
-        return capacidadMaxima;
-    }
-
-    @Override
-    public String toString() {
-        return "CapacidadExcedidaException{" +
-                "capacidadMaxima=" + capacidadMaxima +
-                ", mensaje=" + getMessage() +
-                '}';
     }
 }
+
