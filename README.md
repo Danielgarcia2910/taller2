@@ -12,128 +12,140 @@ Aplicación de escritorio desarrollada en Java Swing que simula una tienda de ac
 | Tipo de aplicación | Escritorio                       |
 
 
-2. Cómo Ejecutar el Proyecto
-Requisitos previos
-•	Java JDK 17 o superior instalado
-•	Apache NetBeans 19 o superior (recomendado)
-•	Maven integrado (viene incluido con NetBeans)
+🛍️ Descripción del Proyecto
 
-Pasos en NetBeans
-•	Abre NetBeans y selecciona File → Open Project
-•	Navega hasta la carpeta del proyecto y ábrelo
-•	Verifica que todos los archivos .java estén en sus paquetes correctos
-•	Haz clic derecho sobre DiavelPhantom.java → Run File
-•	La ventana de Diavel Phantom se abrirá automáticamente
+DIAVEL PHANTOM es una aplicación de escritorio creada en Java que permite gestionar una tienda virtual de accesorios de moda.
 
+El sistema cuenta con:
 
-3. Tecnologías Utilizadas
-Lenguaje y entorno de desarrollo
-•	Lenguaje: Java (JDK 17 o superior)
-•	IDE recomendado: Apache NetBeans 19 o IntelliJ IDEA
-•	Gestor de proyecto: Maven (estructura estándar de NetBeans)
-
-Bibliotecas Java utilizadas
-•	javax.swing: construcción de la interfaz gráfica (ventanas, botones, paneles, tablas)
-•	java.awt: colores, fuentes, layouts y gráficos 2D
-•	java.awt.event: manejo de eventos de clic, teclado y foco
-•	java.awt.geom: figuras con bordes redondeados en los botones
-•	java.util.ArrayList: almacenamiento dinámico del inventario, carrito e historial
-
-
-4. Funcionalidades del Sistema
-
-4.1 Modo Cliente
-Al iniciar la aplicación entra directamente en modo Cliente. Las opciones del sidebar son:
-
-Opción	Descripción
-Inicio	Pantalla principal con el catálogo completo de productos
-Mis Pedidos	Historial de todos los pedidos realizados en la sesión
-Perfil	Información del cliente: nombre, correo, teléfono y dirección
-Cambiar a Admin	Pide contraseña y cambia al panel de administración
-Cerrar Sesión	Cierra la aplicación con ventana de confirmación
-
-Catálogo de productos
-•	Cuadrícula de 3 columnas con tarjetas individuales por producto
-•	Cada tarjeta muestra: emoji de categoría, nombre, tipo, precio y stock
-•	Stock en verde si hay disponibilidad, en rojo si está agotado
-•	Botón Agregar desactivado automáticamente cuando el stock es 0
-
-Buscador en tiempo real
-•	Campo de texto que filtra productos al instante mientras el usuario escribe
-•	Busca coincidencias tanto en el nombre como en la categoría del producto
-
-Filtro por categoría
-•	Botones de radio en el sidebar para filtrar: Todos, Gafas, Collares, Gorras, Pulseras, Anillos, Relojes
-•	Se puede combinar con el buscador para filtrar dentro de una categoría
-
+Catálogo interactivo de productos
 Carrito de compras
-•	Panel lateral derecho que muestra los productos agregados
-•	Cada ítem muestra emoji, nombre, precio y botón X para quitar
-•	Total actualizado automáticamente en tiempo real
-•	Contador de ítems visible en el encabezado del carrito
-•	Al quitar un producto, el stock se devuelve al inventario
+Historial de pedidos
+Filtros por categoría
+Buscador en tiempo real
+Panel de administración protegido por contraseña
+Gestión dinámica de inventario
 
-Realizar pedido
-•	Valida que el carrito no esté vacío antes de procesar
-•	Descuenta el stock de cada producto comprado
-•	Genera un objeto Pedido y lo agrega al historial del cliente
-•	Muestra ventana de confirmación con ID del pedido y total
-•	Vacía el carrito automáticamente al completar el pedido
+Además, el proyecto implementa múltiples conceptos fundamentales de la Programación Orientada a Objetos (POO) como:
 
-4.2 Modo Administrador
-Para acceder al modo administrador se hace clic en 'Cambiar a Admin' en el sidebar e ingresa la contraseña: admin
-
-Descripción del modo administrador
-Agregar Producto	Formulario para crear un producto: nombre, precio, stock y categoría
-Eliminar Producto	Lista desplegable para seleccionar y eliminar un producto del inventario
-Editar Precio	Selecciona un producto y cambia su precio con validación numérica
-Editar Stock	Selecciona un producto y actualiza el stock disponible
-Cambiar a Cliente	Regresa al modo cliente sin pedir contraseña
-Cerrar Sesión	Cierra la aplicación con ventana de confirmación
-
-Edición directa desde las tarjetas
-•	En modo admin, cada tarjeta de producto muestra dos botones adicionales
-•	Boton Precio: abre un cuadro para ingresar el nuevo precio directamente
-•	Boton Stock: abre un cuadro para ingresar el nuevo stock directamente
-•	Los cambios se reflejan de inmediato en el catálogo sin necesidad de recargar
-
-Cambio de rol
-•	Desde el modo cliente: clic en 'Cambiar a Admin' → ingresa contraseña → accede al panel
-•	Desde el modo admin: clic en 'Cambiar a Cliente' → regresa sin pedir contraseña
-•	El header actualiza el nombre y rol del usuario activo en tiempo real
-
-5. Catálogo de Productos
-El sistema incluye 12 productos preconfigurados distribuidos en 6 categorías:
-
-Producto	Categoría	Precio	Stock
-Gafas Sol Wayfarers	Gafas	$85.000	15
-Gafas Sol Aviator	Gafas	$120.000	10
-Collar Perlas	Collares	$55.000	20
-Collar Dorado Fino	Collares	$42.000	18
-Gorra Cap Negra	Gorras	$38.000	25
-Gorra Trucker Blanca	Gorras	$35.000	12
-Pulsera Tejida	Pulseras	$22.000	30
-Pulsera Oro Rosado	Pulseras	$65.000	8
-Anillo Plata 925	Anillos	$48.000	14
-Anillo Dorado Fino	Anillos	$52.000	10
-Reloj Clasico Negro	Relojes	$185.000	6
-Reloj Minimalista	Relojes	$220.000	4
+Herencia
+Encapsulamiento
+Polimorfismo
+Abstracción
+Manejo de excepciones personalizadas
+🖼️ Características Principales
+👤 Modo Cliente
+Explorar catálogo de productos
+Buscar productos en tiempo real
+Filtrar por categorías
+Agregar productos al carrito
+Eliminar productos del carrito
+Realizar pedidos
+Consultar historial de compras
+Ver perfil del cliente
+🔐 Modo Administrador
+Acceso mediante contraseña
+Agregar nuevos productos
+Editar precios
+Editar stock
+Eliminar productos
+Actualización inmediata del inventario
+Cambio dinámico entre roles
 
 
-7. Conceptos de POO Aplicados
+🚀 Cómo Ejecutar el Proyecto
+✅ Requisitos
+Java JDK 17 o superior
+Apache NetBeans 19+ (recomendado)
+Maven integrado
+▶️ Ejecutar en NetBeans
+Abrir NetBeans
+Seleccionar:
+File → Open Project
+Buscar la carpeta del proyecto
+Abrir el proyecto
+Verificar que todos los .java estén correctamente organizados
+Ejecutar:
+DiavelPhantom.java → Run File
 
-Concepto POO	Cómo se aplica en el proyecto
-Herencia	Cliente y Administrador extienden la clase abstracta usuario
-Encapsulamiento	Todos los atributos son privados con getters y setters
-Polimorfismo	usuario tiene métodos abstractos implementados diferente en cada subclase
-Abstracción	usuario es abstracta: define el contrato sin instanciarse directamente
-Excepciones checked	Fuerzan al llamador a manejar errores de negocio (StockInsuficiente, etc.)
-Composición	Cliente contiene un Carrito; Carrito contiene una lista de Productos
+🛠️ Tecnologías Utilizadas
+| Tecnología | Uso                            |
+| ---------- | ------------------------------ |
+| Java       | Lógica principal               |
+| Java Swing | Interfaz gráfica               |
+| Java AWT   | Componentes visuales y layouts |
+| Maven      | Gestión del proyecto           |
+| NetBeans   | Desarrollo                     |
 
 
-Credenciales del sistema
-•	Contraseña de administrador: admin
-•	Usuario cliente por defecto: Cliente Juan
+📂 Funcionalidades del Sistema
+👤 Modo Cliente
+📦 Catálogo de Productos
+Cuadrícula visual de productos
+Tarjetas individuales por producto
+Visualización de:
+Emoji de categoría
+Nombre
+Tipo
+Precio
+Stock
+Indicadores visuales
+🟢 Verde → producto disponible
+🔴 Rojo → agotado
+🔍 Buscador en Tiempo Real
+
+Permite filtrar productos mientras el usuario escribe.
+
+Busca coincidencias por:
+
+Nombre
+Categoría
+🗂️ Filtro por Categorías
+
+Categorías disponibles:
+
+Gafas
+Collares
+Gorras
+Pulseras
+Anillos
+Relojes
+
+También puede combinarse con el buscador.
+
+🛒 Carrito de Compras
+
+Funciones:
+
+Agregar productos
+Quitar productos
+Visualizar total automáticamente
+Contador dinámico de ítems
+Actualización instantánea
+📋 Realizar Pedido
+
+El sistema:
+
+Verifica que el carrito no esté vacío
+Genera un pedido automáticamente
+Actualiza el historial del cliente
+Vacía el carrito
+Muestra confirmación de compra
+🔐 Modo Administrador
+Acceso
+
+Para ingresar:
+
+Contraseña: admin
+
+Funciones del Administrador
+| Función           | Descripción                       |
+| ----------------- | --------------------------------- |
+| Agregar Producto  | Crear productos nuevos            |
+| Eliminar Producto | Eliminar productos del inventario |
+| Editar Precio     | Modificar precios                 |
+| Editar Stock      | Actualizar inventario             |
+| Cambiar Rol       | Volver a modo cliente             |
 
 9. Flujo de Uso Típico
 Como cliente
@@ -144,17 +156,73 @@ Como cliente
 •	Haz clic en Realizar Pedido para confirmar la compra
 •	El pedido queda registrado en Mis Pedidos
 
-Como administrador
-•	Haz clic en Cambiar a Admin en el sidebar
-•	Ingresa la contraseña: admin
-•	Usa las opciones del sidebar para gestionar el inventario
-•	También puedes editar precio y stock directamente desde cada tarjeta de producto
-•	Haz clic en Cambiar a Cliente para volver al modo compra
+🛍️ Catálogo Inicial
+| Producto             | Categoría | Precio   | Stock |
+| -------------------- | --------- | -------- | ----- |
+| Gafas Sol Wayfarers  | Gafas     | $85.000  | 15    |
+| Gafas Sol Aviator    | Gafas     | $120.000 | 10    |
+| Collar Perlas        | Collares  | $55.000  | 20    |
+| Collar Dorado Fino   | Collares  | $42.000  | 18    |
+| Gorra Cap Negra      | Gorras    | $38.000  | 25    |
+| Gorra Trucker Blanca | Gorras    | $35.000  | 12    |
+| Pulsera Tejida       | Pulseras  | $22.000  | 30    |
+| Pulsera Oro Rosado   | Pulseras  | $65.000  | 8     |
+| Anillo Plata 925     | Anillos   | $48.000  | 14    |
+| Anillo Dorado Fino   | Anillos   | $52.000  | 10    |
+| Reloj Clasico Negro  | Relojes   | $185.000 | 6     |
+| Reloj Minimalista    | Relojes   | $220.000 | 4     |
 
-Mejoras a futuro
-• Base de datos
-• Mejora de interfaz
-• Mejora de usuarios
-• Mejora de codigo
+🧠 Conceptos de POO Aplicados
+| Concepto                   | Aplicación                                  |
+| -------------------------- | ------------------------------------------- |
+| Herencia                   | Cliente y Administrador heredan de Usuario  |
+| Encapsulamiento            | Uso de atributos privados y getters/setters |
+| Polimorfismo               | Métodos redefinidos en subclases            |
+| Abstracción                | Clase abstracta Usuario                     |
+| Excepciones personalizadas | Manejo de errores del negocio               |
+| Composición                | Carrito contiene Productos                  |
+
+🔑 Credenciales
+| Rol                 | Credencial |
+| ------------------- | ---------- |
+| Administrador       | `admin`    |
+| Cliente por defecto | Juan       |
+
+📖 Flujo de Uso
+👤 Cliente
+Explorar productos
+Filtrar o buscar
+Agregar al carrito
+Revisar pedido
+Confirmar compra
+Consultar historial
+🔐 Administrador
+Cambiar a modo admin
+Ingresar contraseña
+Gestionar inventario
+Editar precios y stock
+Regresar a modo cliente
+📌 Mejoras Futuras
+💾 Integración con base de datos
+🎨 Mejoras visuales de interfaz
+👥 Sistema de múltiples usuarios
+🔒 Sistema de autenticación real
+📊 Reportes de ventas
+🧾 Persistencia de pedidos
+☁️ Conexión con APIs
+
+📁 Estructura del Proyecto
+src/
+│
+├── modelo/
+│   ├── abstractas/
+│   ├── excepciones/
+│   └── tiendaaccesorios/
+│
+├── interfaz/
+│
+└── main/
+
+
 
 
