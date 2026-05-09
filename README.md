@@ -14,7 +14,10 @@ Aplicación de escritorio desarrollada en Java Swing que simula una tienda de ac
 
 👨‍💻 Autores
 Daniel Jose Garcia Jimenez
+
+
 Luis Carlos Pumares
+
 Joinner Pedroza
 
 
