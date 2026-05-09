@@ -12,6 +12,12 @@ Aplicación de escritorio desarrollada en Java Swing que simula una tienda de ac
 | Tipo de aplicación | Escritorio                       |
 
 
+👨‍💻 Autores
+Daniel Jose Garcia Jimenez
+Luis Carlos Pumares
+Joinner Pedroza
+
+
 🛍️ Descripción del Proyecto
 
 DIAVEL PHANTOM es una aplicación de escritorio creada en Java que permite gestionar una tienda virtual de accesorios de moda.
