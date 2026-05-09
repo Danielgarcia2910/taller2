@@ -67,6 +67,9 @@ Cambio dinámico entre roles
 Java JDK 17 o superior
 Apache NetBeans 19+ (recomendado)
 Maven integrado
+
+En github entrar al proyecto e-commerce.zip y precionar la opcion de view raw para descargar el .zip
+
 ▶️ Ejecutar en NetBeans
 Abrir NetBeans
 Seleccionar:
