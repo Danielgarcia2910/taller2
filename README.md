@@ -1,8 +1,7 @@
-DIAVEL PHANTOM
+DIAVEL PHANTOM 🕶️
 Sistema de Tienda de Accesorios de Moda
-Documentación Técnica y Manual de Usuario
-Versión 1.0  |  Java Swing  |  NetBeans
 
+Aplicación de escritorio desarrollada en Java Swing que simula una tienda de accesorios de moda con sistema de compras, carrito, historial de pedidos y panel de administración.
 1. Descripción General
 Diavel Phantom es una aplicación de escritorio desarrollada en Java con interfaz gráfica Swing. Simula el funcionamiento de una tienda de accesorios de moda que permite a los clientes explorar el catálogo, agregar productos al carrito y realizar pedidos.
 Además cuenta con un panel de administración protegido por contraseña para gestionar el inventario: agregar y eliminar productos, y editar precios y stock en tiempo real.
