@@ -35,12 +35,9 @@ Bibliotecas Java utilizadas
 •	java.awt.geom: figuras con bordes redondeados en los botones
 •	java.util.ArrayList: almacenamiento dinámico del inventario, carrito e historial
 
-Paradigma de programación
-•	Programación Orientada a Objetos (POO)
-•	Arquitectura en dos capas: modelo (lógica de negocio) y vista (interfaz gráfica)
-
 
 4. Funcionalidades del Sistema
+
 4.1 Modo Cliente
 Al iniciar la aplicación entra directamente en modo Cliente. Las opciones del sidebar son:
 
@@ -155,5 +152,5 @@ Mejoras a futuro
 • Mejora de interfaz
 • Mejora de usuarios
 • Mejora de codigo
-•
+
 
